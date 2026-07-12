@@ -15,3 +15,10 @@ test('renders all six blocks', () => {
   expect(document.querySelector('#projects')).toBeInTheDocument()
   expect(document.querySelector('#contact')).toBeInTheDocument()
 })
+
+test('wraps content in the neobrutalism page frame', () => {
+  render(<App />)
+  const frame = screen.getByTestId('page-frame')
+  expect(frame.className).toContain('border-border')
+  expect(frame.querySelector('main')).toBeInTheDocument()
+})

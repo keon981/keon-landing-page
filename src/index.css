@@ -58,9 +58,22 @@ html {
 body {
   background-color: var(--background);
   color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+.contour-bg {
+  background-image: url('/contours.svg');
+  background-size: 640px;
+  opacity: 0.9;
+}
+
+.dark .contour-bg {
+  opacity: 0.35;
+}
+
+.paper-grid {
   background-image:
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: 24px 24px;
-  font-family: var(--font-sans);
 }
