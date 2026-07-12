@@ -13,20 +13,11 @@ function App() {
 
   useEffect(() => {
     let mounted = true
-    const pendingImages = Array.from(document.images)
-      .filter(
-        (img) =>
-          img.getBoundingClientRect().top < window.innerHeight && !img.complete,
-      )
-      .map(
-        (img) =>
-          new Promise((resolve) => {
-            img.onload = resolve
-            img.onerror = resolve
-          }),
-      )
+    // 內容尚未掛載，等待圖片無意義（document.images 必為空）；
+    // 改等字型就緒（避免淡入後字型閃換）+ 300ms 最短展示
+    const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve()
     Promise.all([
-      ...pendingImages,
+      fontsReady,
       new Promise((resolve) => setTimeout(resolve, 300)),
     ]).then(() => {
       if (mounted) setLoading(false)
