@@ -14,7 +14,7 @@ export function Navbar() {
   const { t } = useTranslation()
   return (
     <header className="sticky top-0 z-50 px-4 pt-4">
-      <nav className="mx-auto flex max-w-5xl items-center gap-4 rounded-base border-2 border-border bg-main px-4 py-2 shadow-shadow">
+      <nav className="mx-auto flex max-w-5xl items-center gap-4 rounded-base border-2 border-border bg-main px-4 py-2 shadow-shadow text-main-foreground">
         <a href="#about" className="font-mono text-xl font-heading" aria-label="home">
           K.
         </a>
