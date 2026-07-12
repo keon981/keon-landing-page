@@ -17,3 +17,11 @@ test('renders mailto and github links', () => {
     'https://github.com/keon981',
   )
 })
+
+test('shows current year and quick links', () => {
+  render(<Footer />)
+  const year = String(new Date().getFullYear())
+  expect(screen.getByText(new RegExp(`© ${year}`))).toBeInTheDocument()
+  expect(screen.getByText('快速連結')).toBeInTheDocument()
+  expect(screen.getByRole('link', { name: '經歷' })).toHaveAttribute('href', '#experience')
+})

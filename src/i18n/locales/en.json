@@ -47,7 +47,8 @@
   },
   "footer": {
     "title": "Let's build something together!",
+    "quickLinks": "Quick Links",
     "email": "Email Me",
-    "copyright": "© 2026 Keon Ko · Built with React + Vite + shadcn/ui"
+    "copyright": "© {{year}} Keon Ko"
   }
 }
