@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { ExternalLink } from 'lucide-react'
+import { SiGithub } from 'react-icons/si'
 import { motion } from 'motion/react'
 import { useTranslation } from 'react-i18next'
 import { TypeAnimation } from 'react-type-animation'
@@ -64,7 +64,7 @@ export function HeroSection() {
                 rel="noopener noreferrer"
                 aria-label="GitHub"
               >
-                <ExternalLink />
+                <SiGithub />
               </a>
             </Button>
             <Button variant="accent" size="lg" asChild>
