@@ -2,16 +2,6 @@ import { render, screen } from '@testing-library/react'
 import i18n from '@/i18n'
 import { ExperienceTimeline } from '@/sections/ExperienceTimeline'
 
-global.IntersectionObserver = class IntersectionObserver {
-  constructor() {}
-  disconnect() {}
-  observe() {}
-  takeRecords() {
-    return []
-  }
-  unobserve() {}
-} as any
-
 beforeEach(async () => {
   await i18n.changeLanguage('zh-TW')
 })
