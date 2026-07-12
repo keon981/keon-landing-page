@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen, within } from '@testing-library/react'
 import i18n from '@/i18n'
 import { Navbar } from '@/components/Navbar'
 
@@ -20,4 +20,30 @@ test('renders logo and toggles', () => {
   expect(screen.getByText('K.')).toBeInTheDocument()
   expect(screen.getByRole('button', { name: 'toggle theme' })).toBeInTheDocument()
   expect(screen.getByRole('button', { name: 'toggle language' })).toBeInTheDocument()
+})
+
+test('hamburger opens and closes the mobile menu', () => {
+  render(<Navbar />)
+  const burger = screen.getByRole('button', { name: '開啟選單' })
+  expect(burger).toHaveAttribute('aria-expanded', 'false')
+  fireEvent.click(burger)
+  expect(burger).toHaveAttribute('aria-expanded', 'true')
+  const menu = screen.getByTestId('mobile-menu')
+  expect(within(menu).getByRole('link', { name: '經歷' })).toHaveAttribute(
+    'href',
+    '#experience',
+  )
+  fireEvent.mouseDown(document.body)
+  expect(screen.queryByTestId('mobile-menu')).not.toBeInTheDocument()
+})
+
+test('hides on scroll down and shows on scroll up', () => {
+  render(<Navbar />)
+  const bar = screen.getByTestId('navbar-inner')
+  Object.defineProperty(window, 'scrollY', { value: 500, writable: true })
+  fireEvent.scroll(window)
+  expect(bar.className).toContain('-translate-y-')
+  Object.defineProperty(window, 'scrollY', { value: 200, writable: true })
+  fireEvent.scroll(window)
+  expect(bar.className).toContain('translate-y-0')
 })

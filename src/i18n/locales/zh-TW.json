@@ -4,7 +4,8 @@
     "skills": "技能",
     "experience": "經歷",
     "projects": "專案",
-    "cta": "聯絡我"
+    "cta": "聯絡我",
+    "openMenu": "開啟選單"
   },
   "hero": {
     "greeting": "你好！",

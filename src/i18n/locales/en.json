@@ -4,7 +4,8 @@
     "skills": "Skills",
     "experience": "Experience",
     "projects": "Projects",
-    "cta": "Get in Touch"
+    "cta": "Get in Touch",
+    "openMenu": "Open menu"
   },
   "hero": {
     "greeting": "Hello!",
