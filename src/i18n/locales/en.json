@@ -1,0 +1,52 @@
+{
+  "nav": {
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "projects": "Projects",
+    "cta": "Get in Touch"
+  },
+  "hero": {
+    "greeting": "Hello!",
+    "name": "I'm Keon Ko",
+    "roles": ["Front-End Engineer", "React Developer", "Medical Imaging UI Dev"],
+    "intro": "Front-end developer with 3 years of experience owning projects from planning to launch. I build fast, maintainable admin systems with React, Vite, TypeScript and Next.js, bridge product and engineering with Figma, work fluently with RESTful APIs, and use AI tools like Claude Code and GitHub Copilot in my daily workflow.",
+    "badgeRole": "Frontend Dev",
+    "badgeYears": "3+ yrs ✦",
+    "cta": "Get in Touch!"
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "experience": {
+    "title": "Work Experience",
+    "present": "Present",
+    "changtien": {
+      "role": "Front-End Engineer",
+      "company": "Ever Fortune.AI Co., Ltd.",
+      "bullets": [
+        "Independently lead front-end development and maintenance — framework selection and modular architecture — building and refactoring systems from 0 to 1",
+        "Collaborate with UI/UX, AI teams and medical professionals to iterate on multiple medical software product interfaces",
+        "Maintain and evolve a DICOM medical imaging system: display, processing, storage and transfer, with filtering, manipulation and measurement tools",
+        "Work with back-end engineers on API integration and documentation",
+        "Write and maintain software design documents and participate in technical feasibility reviews",
+        "Build and continuously refine a shared front-end architecture and component system reused across products"
+      ]
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "code": "Code",
+    "demo": "Live Demo",
+    "items": {
+      "p1": { "title": "Project One", "desc": "Coming soon — stay tuned." },
+      "p2": { "title": "Project Two", "desc": "Coming soon — stay tuned." },
+      "p3": { "title": "Project Three", "desc": "Coming soon — stay tuned." }
+    }
+  },
+  "footer": {
+    "title": "Let's build something together!",
+    "email": "Email Me",
+    "copyright": "© 2026 Keon Ko · Built with React + Vite + shadcn/ui"
+  }
+}
