@@ -1,10 +1,55 @@
 import { useState } from 'react'
-import { SiGithub } from 'react-icons/si'
-import { motion } from 'motion/react'
+import { motion, type Variants } from 'motion/react'
 import { useTranslation } from 'react-i18next'
+import { SiGithub } from 'react-icons/si'
 import { TypeAnimation } from 'react-type-animation'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
+import { SkillsMarquee } from '@/sections/SkillsMarquee'
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.2, delayChildren: 0.3 },
+  },
+}
+
+const itemVariants: Variants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: 'easeOut' } },
+}
+
+const socialIconVariants: Variants = {
+  hidden: { scale: 0 },
+  visible: {
+    scale: 1,
+    transition: { type: 'spring', stiffness: 260, damping: 20 },
+  },
+  hover: {
+    scale: 1.1,
+    rotate: [0, -10, 10, -10, 0],
+    transition: { duration: 0.4 },
+  },
+}
+
+const ctaVariants: Variants = {
+  hidden: { scale: 0 },
+  visible: {
+    scale: 1,
+    transition: { type: 'spring', stiffness: 260, damping: 20, delay: 1.5 },
+  },
+  tap: { scale: 0.95 },
+}
+
+const marqueeVariants: Variants = {
+  hidden: { y: 100, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: { type: 'spring', stiffness: 100, damping: 20, delay: 1.2 },
+  },
+}
 
 function Avatar() {
   const [failed, setFailed] = useState(false)
@@ -32,53 +77,63 @@ export function HeroSection() {
   const sequence = roles.flatMap((r) => [r, 1800])
 
   return (
-    <section id="about" className="mx-auto max-w-5xl scroll-mt-24 px-4 py-16">
-      <div className="grid items-center gap-10 md:grid-cols-[3fr_2fr]">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <p className="font-heading text-main-foreground">
+    <section
+      id="about"
+      className="relative flex h-[calc(100vh-8rem)] max-h-[900px] min-h-[500px] scroll-mt-24 flex-col overflow-hidden sm:min-h-[600px]"
+    >
+      <div
+        aria-hidden
+        className="paper-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
+      />
+      <motion.div
+        className="relative z-10 mx-auto grid max-w-5xl flex-1 items-center gap-10 px-4 pb-24 pt-10 md:grid-cols-[3fr_2fr]"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div>
+          <motion.p variants={itemVariants} className="font-heading text-main-foreground">
             <span className="rounded-base border-2 border-border bg-main px-2 py-0.5">
               {t('hero.greeting')}
             </span>
-          </p>
-          <h1 className="mt-4 text-4xl font-heading md:text-5xl">
+          </motion.p>
+          <motion.h1
+            variants={itemVariants}
+            className="mt-4 text-4xl font-heading md:text-5xl"
+          >
             {t('hero.name')} 👋
-          </h1>
-          <p className="mt-3 inline-block rounded-base border-2 border-border bg-highlight px-2 py-1 font-mono text-lg font-heading text-main-foreground">
-            <TypeAnimation
-              key={i18n.language}
-              sequence={sequence}
-              repeat={Infinity}
-              cursor
-            />
-          </p>
-          <p className="mt-5 max-w-xl leading-relaxed">{t('hero.intro')}</p>
+          </motion.h1>
+          <motion.p
+            variants={itemVariants}
+            className="mt-3 inline-block rounded-base border-2 border-border bg-highlight px-2 py-1 font-mono text-lg font-heading text-main-foreground"
+          >
+            <TypeAnimation key={i18n.language} sequence={sequence} repeat={Infinity} cursor />
+          </motion.p>
+          <motion.p variants={itemVariants} className="mt-5 max-w-xl leading-relaxed">
+            {t('hero.intro')}
+          </motion.p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
-            <Button variant="neutral" size="icon" asChild>
-              <a
-                href="https://github.com/keon981"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="GitHub"
-              >
-                <SiGithub />
-              </a>
-            </Button>
-            <Button variant="accent" size="lg" asChild>
-              <a href="#contact">{t('hero.cta')}</a>
-            </Button>
+            <motion.div variants={socialIconVariants} whileHover="hover">
+              <Button variant="neutral" size="icon" asChild>
+                <a
+                  href="https://github.com/keon981"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="GitHub"
+                >
+                  <SiGithub />
+                </a>
+              </Button>
+            </motion.div>
+            <motion.div variants={ctaVariants} whileTap="tap">
+              <Button variant="accent" size="lg" asChild>
+                <a href="#contact">{t('hero.cta')}</a>
+              </Button>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="relative"
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-        >
+        <motion.div className="relative" variants={itemVariants}>
           <Avatar />
           <Badge
             variant="highlight"
@@ -93,7 +148,16 @@ export function HeroSection() {
             {t('hero.badgeYears')}
           </Badge>
         </motion.div>
-      </div>
+      </motion.div>
+
+      <motion.div
+        className="absolute bottom-0 left-0 z-10 w-full"
+        variants={marqueeVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <SkillsMarquee />
+      </motion.div>
     </section>
   )
 }

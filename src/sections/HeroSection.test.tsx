@@ -21,3 +21,8 @@ test('switches name on language change', async () => {
   render(<HeroSection />)
   expect(screen.getByText(/I'm Keon Ko/)).toBeInTheDocument()
 })
+
+test('contains the skills marquee pinned inside the hero', () => {
+  const { container } = render(<HeroSection />)
+  expect(container.querySelector('#skills')).toBeInTheDocument()
+})
