@@ -27,7 +27,10 @@ Object.defineProperty(window, 'ResizeObserver', {
 })
 
 class IntersectionObserverMock {
-  constructor(public callback: IntersectionObserverCallback) {}
+  callback: IntersectionObserverCallback
+  constructor(callback: IntersectionObserverCallback) {
+    this.callback = callback
+  }
   observe = vi.fn()
   unobserve = vi.fn()
   disconnect = vi.fn()
