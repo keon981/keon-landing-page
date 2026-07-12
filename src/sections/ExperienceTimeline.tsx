@@ -13,7 +13,7 @@ export function ExperienceTimeline() {
   const { t } = useTranslation()
   return (
     <section id="experience" className="mx-auto max-w-5xl scroll-mt-24 px-4 py-16">
-      <h2 className="mb-8 inline-block rounded-base border-2 border-border bg-surface px-4 py-2 text-2xl font-heading shadow-shadow">
+      <h2 className="mb-8 inline-block rounded-base border-2 border-border bg-surface px-4 py-2 text-2xl font-heading shadow-shadow transition-all duration-300 hover:-translate-y-1 hover:shadow-[8px_8px_0_0_var(--border)]">
         {t('experience.title')} 💼
       </h2>
       <ol className="space-y-8" aria-label={t('experience.title')}>

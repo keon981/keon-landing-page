@@ -27,7 +27,7 @@ export function ProjectsSection() {
       className="scroll-mt-24 border-t-2 border-border bg-main/10 py-16"
     >
       <div className="mx-auto max-w-5xl px-4">
-        <h2 className="mb-8 inline-block rounded-base border-2 border-border bg-surface px-4 py-2 text-2xl font-heading shadow-shadow">
+        <h2 className="mb-8 inline-block rounded-base border-2 border-border bg-surface px-4 py-2 text-2xl font-heading shadow-shadow transition-all duration-300 hover:-translate-y-1 hover:shadow-[8px_8px_0_0_var(--border)]">
           {t('projects.title')} 🚀
         </h2>
         <div className="grid gap-6 md:grid-cols-3">
@@ -39,9 +39,9 @@ export function ProjectsSection() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.45, delay: i * 0.1 }}
             >
-              <Card className="h-full gap-4 overflow-hidden py-0 pb-6">
+              <Card className="group h-full gap-4 overflow-hidden py-0 pb-6 transition-transform duration-300 hover:scale-105">
                 <div
-                  className={`flex h-28 items-center justify-center border-b-2 border-border text-4xl ${toneClass[p.tone]}`}
+                  className={`flex h-28 items-center justify-center border-b-2 border-border text-4xl ${toneClass[p.tone]} transition-transform duration-300 group-hover:scale-110`}
                   aria-hidden
                 >
                   🖼️
