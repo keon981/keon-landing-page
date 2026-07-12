@@ -48,6 +48,14 @@
   --font-weight-base: 500;
   --font-weight-heading: 800;
   --shadow-shadow: var(--shadow);
+  --animate-spin-slow: spin-slow 3s linear infinite;
+
+  @keyframes spin-slow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   --font-sans: "Space Grotesk", "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
 }
 
