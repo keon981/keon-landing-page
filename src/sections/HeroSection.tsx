@@ -79,14 +79,14 @@ export function HeroSection() {
   return (
     <section
       id="about"
-      className="relative flex h-[calc(100vh-8rem)] max-h-[900px] min-h-[500px] scroll-mt-24 flex-col overflow-hidden sm:min-h-[600px]"
+      className="relative flex scroll-mt-24 flex-col overflow-hidden md:h-[calc(100vh-8rem)] md:max-h-[900px] md:min-h-[600px]"
     >
       <div
         aria-hidden
         className="paper-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
       />
       <motion.div
-        className="relative z-10 mx-auto grid max-w-5xl flex-1 items-center gap-10 px-4 pb-24 pt-10 md:grid-cols-[3fr_2fr]"
+        className="relative z-10 mx-auto grid max-w-5xl flex-1 items-center gap-10 px-4 pb-10 pt-10 md:grid-cols-[3fr_2fr] md:pb-24"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
@@ -151,7 +151,7 @@ export function HeroSection() {
       </motion.div>
 
       <motion.div
-        className="absolute bottom-0 left-0 z-10 w-full"
+        className="z-10 w-full md:absolute md:bottom-0 md:left-0"
         variants={marqueeVariants}
         initial="hidden"
         animate="visible"

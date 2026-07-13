@@ -35,6 +35,7 @@ export function Navbar() {
 
   useEffect(() => {
     const onScroll = () => {
+      setIsOpen(false)
       const y = window.scrollY
       setShowNav(y < lastY.current || y <= 100)
       lastY.current = y
