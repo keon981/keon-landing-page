@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
-import { LoadingScreen } from '@/components/LoadingScreen'
-import { Navbar } from '@/components/Navbar'
-import { ExperienceTimeline } from '@/sections/ExperienceTimeline'
-import { Footer } from '@/sections/Footer'
-import { HeroSection } from '@/sections/HeroSection'
-import { ProjectsSection } from '@/sections/ProjectsSection'
+
+import { ExperienceTimeline } from '@/components/block/ExperienceTimeline'
+import { HeroSection } from '@/components/block/HeroSection'
+import { ProjectsSection } from '@/components/block/ProjectsSection'
+import { Footer } from '@/components/layout/Footer'
+import { Navbar } from '@/components/layout/Navbar'
+import { LoadingScreen } from '@/components/ui/LoadingScreen'
 
 function App() {
   const [loading, setLoading] = useState(true)
@@ -17,7 +18,7 @@ function App() {
     const fontsReady = document.fonts ? document.fonts.ready : Promise.resolve()
     Promise.all([
       fontsReady,
-      new Promise((resolve) => setTimeout(resolve, 300)),
+      new Promise(resolve => setTimeout(resolve, 300)),
     ]).then(() => {
       if (mounted) setLoading(false)
     })

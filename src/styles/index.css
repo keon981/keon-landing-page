@@ -1,0 +1,87 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.985 0.011 71.902);
+  --secondary-background: oklch(0.178 0 0);
+  --surface: oklch(1 0 0);
+  --main: oklch(0.835 0.133 175.032);
+  --accent: oklch(0.748 0.167 359.929);
+  --highlight: oklch(0.91 0.157 96.908);
+  --foreground: oklch(0.178 0 0);
+  --main-foreground: oklch(0.178 0 0);
+  --border: oklch(0 0 0);
+  --ring: oklch(0 0 0);
+  --overlay: oklch(0 0 0 / 0.8);
+  --shadow: 4px 4px 0px 0px var(--border);
+  --grid-line: oklch(0 0 0 / 0.05);
+}
+
+.dark {
+  --background: oklch(0.235 0 0);
+  --secondary-background: oklch(0.985 0.011 71.902);
+  --surface: oklch(0.285 0 0);
+  --foreground: oklch(0.97 0 0);
+  --ring: oklch(1 0 0);
+  --grid-line: oklch(1 0 0 / 0.06);
+}
+
+@theme inline {
+  --color-main: var(--main);
+  --color-accent: var(--accent);
+  --color-highlight: var(--highlight);
+  --color-surface: var(--surface);
+  --color-background: var(--background);
+  --color-secondary-background: var(--secondary-background);
+  --color-foreground: var(--foreground);
+  --color-main-foreground: var(--main-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-overlay: var(--overlay);
+  --spacing-boxShadowX: 4px;
+  --spacing-boxShadowY: 4px;
+  --spacing-reverseBoxShadowX: -4px;
+  --spacing-reverseBoxShadowY: -4px;
+  --radius-base: 8px;
+  --font-weight-base: 500;
+  --font-weight-heading: 800;
+  --shadow-shadow: var(--shadow);
+  --animate-spin-slow: spin-slow 3s linear infinite;
+
+  @keyframes spin-slow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  --font-sans: "Space Grotesk", "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+.contour-bg {
+  background-image: url('/contours.svg');
+  background-size: 640px;
+  opacity: 0.9;
+}
+
+.dark .contour-bg {
+  opacity: 0.35;
+}
+
+.paper-grid {
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
