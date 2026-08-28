@@ -15,6 +15,8 @@ import {
   CardTitle,
 } from '@/components/ui/Card'
 
+import type { ProjectImage } from '@/assets/data/projects'
+
 const toneClass = {
   main: 'bg-main',
   highlight: 'bg-highlight',
@@ -41,14 +43,14 @@ export function ProjectsSection() {
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.45, delay: i * 0.1 }}
             >
-              <Card className="group h-full gap-4 overflow-hidden py-0 pb-6 transition-transform duration-300 hover:scale-105">
+              <Card className="group h-full gap-4 overflow-hidden p-3 pb-6 transition-transform duration-300 hover:scale-105 sm:hover:scale-103 lg:hover:scale-105">
                 <div
-                  className={`flex h-28 items-center justify-center border-b-2 border-border text-4xl ${toneClass[p.tone]} transition-transform duration-300 group-hover:scale-110`}
+                  className={`flex h-36 sm:h-44 md:h-48 items-center justify-center  border-border border-2 rounded overflow-hidden text-4xl ${toneClass[p.tone]}  transition-transform duration-300`}
                   aria-hidden
                 >
-                  🖼️
+                  <ProjectPicture image={p.image} />
                 </div>
-                <CardContent className="space-y-2">
+                <CardContent className="space-y-2 px-0">
                   <CardTitle className="text-lg">
                     {t(`projects.items.${p.i18nKey}.title`)}
                   </CardTitle>
@@ -63,39 +65,75 @@ export function ProjectsSection() {
                     ))}
                   </div>
                 </CardContent>
-                <CardFooter className="mt-auto gap-2">
-                  {p.codeUrl
-                    ? (
-                        <Button variant="neutral" size="sm" asChild>
-                          <a href={p.codeUrl} target="_blank" rel="noopener noreferrer">
-                            <SiGithub /> {t('projects.code')}
-                          </a>
-                        </Button>
-                      )
-                    : (
-                        <Button variant="neutral" size="sm" disabled>
-                          <SiGithub /> {t('projects.code')}
-                        </Button>
-                      )}
-                  {p.demoUrl
-                    ? (
-                        <Button size="sm" asChild>
-                          <a href={p.demoUrl} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink /> {t('projects.demo')}
-                          </a>
-                        </Button>
-                      )
-                    : (
-                        <Button size="sm" disabled>
-                          <ExternalLink /> {t('projects.demo')}
-                        </Button>
-                      )}
-                </CardFooter>
+                <ProjectCardFooter codeUrl={p.codeUrl} demoUrl={p.demoUrl} />
               </Card>
             </motion.div>
           ))}
         </div>
       </div>
     </section>
+  )
+}
+
+interface ProjectPictureProps {
+  image: ProjectImage | null
+}
+
+function ProjectPicture({ image }: ProjectPictureProps) {
+  if (!image) return '🖼️'
+
+  return (
+    <picture className="size-full">
+      <source srcSet={image.avif} type="image/avif" />
+      <source srcSet={image.webp} type="image/webp" />
+      <img
+        src={image.fallback}
+        alt=""
+        width={image.width}
+        height={image.height}
+        loading="lazy"
+        decoding="async"
+        className="size-full object-cover"
+      />
+    </picture>
+  )
+}
+
+interface ProjectCardFooterProps {
+  codeUrl: string | null
+  demoUrl: string | null
+}
+
+function ProjectCardFooter({ codeUrl, demoUrl }: ProjectCardFooterProps) {
+  const { t } = useTranslation()
+  return (
+    <CardFooter className="mt-auto gap-2 px-0">
+      {codeUrl
+        ? (
+            <Button variant="neutral" size="sm" asChild>
+              <a href={codeUrl} target="_blank" rel="noopener noreferrer">
+                <SiGithub /> {t('projects.code')}
+              </a>
+            </Button>
+          )
+        : (
+            <Button variant="neutral" size="sm" disabled>
+              <SiGithub /> {t('projects.code')}
+            </Button>
+          )}
+      {demoUrl
+        ? (
+            <Button size="sm" asChild>
+              <a href={demoUrl} target="_blank" rel="noopener noreferrer">
+                <ExternalLink /> {t('projects.demo')}
+              </a>
+            </Button>
+          )
+        : (
+            <Button size="sm" disabled>
+              <ExternalLink /> {t('projects.demo')}
+            </Button>
+          )}
+    </CardFooter>
   )
 }

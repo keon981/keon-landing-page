@@ -69,7 +69,7 @@ function Avatar() {
         : (
             <img
               src={`${import.meta.env.BASE_URL}avatar.png`}
-              alt="柯均翰"
+              alt="keon"
               className="h-full w-full object-cover"
               onError={() => setFailed(true)}
             />
@@ -108,7 +108,7 @@ export function HeroSection() {
             variants={itemVariants}
             className="mt-4 text-4xl font-heading md:text-5xl"
           >
-            {t('hero.name')} 👋
+            {t('hero.name')} 🫠
           </motion.h1>
           <motion.p
             variants={itemVariants}

@@ -58,7 +58,7 @@
     }
   },
   "footer": {
-    "title": "一起做點什麼吧！",
+    "title": "",
     "quickLinks": "快速連結",
     "email": "寫信給我",
     "copyright": "© {{year}} 柯均翰"
