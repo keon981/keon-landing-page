@@ -8,8 +8,8 @@ beforeEach(async () => {
   await i18n.changeLanguage('zh-TW')
 })
 
-it('has 12 skills', () => {
-  expect(skills).toHaveLength(12)
+it('has 16 skills', () => {
+  expect(skills).toHaveLength(16)
 })
 
 it('renders every skill name', () => {
