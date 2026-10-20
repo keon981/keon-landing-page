@@ -1,11 +1,12 @@
-import { useState } from 'react'
-
 import { useTranslation } from 'react-i18next'
 import { SiGithub } from 'react-icons/si'
 import { TypeAnimation } from 'react-type-animation'
 
 import { motion } from 'motion/react'
 
+import profileAvif from '@/assets/images/profile.avif'
+import profilePng from '@/assets/images/profile.png'
+import profileWebp from '@/assets/images/profile.webp'
 import { SkillsMarquee } from '@/components/block/SkillsMarquee'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
@@ -57,23 +58,20 @@ const marqueeVariants: Variants = {
 }
 
 function Avatar() {
-  const [failed, setFailed] = useState(false)
   return (
     <div className="relative mx-auto flex h-64 w-56 items-end justify-center overflow-hidden rounded-t-full rounded-b-base border-2 border-border bg-main shadow-shadow">
-      {failed
-        ? (
-            <span className="pb-6 text-7xl" role="img" aria-label="avatar placeholder">
-              🧑‍💻
-            </span>
-          )
-        : (
-            <img
-              src={`${import.meta.env.BASE_URL}avatar.png`}
-              alt="keon"
-              className="h-full w-full object-cover"
-              onError={() => setFailed(true)}
-            />
-          )}
+      <picture className="size-full">
+        <source srcSet={profileAvif} type="image/avif" />
+        <source srcSet={profileWebp} type="image/webp" />
+        <img
+          src={profilePng}
+          alt="keon"
+          width={448}
+          height={512}
+          decoding="async"
+          className="size-full object-cover"
+        />
+      </picture>
     </div>
   )
 }
@@ -86,11 +84,11 @@ export function HeroSection() {
   return (
     <section
       id="about"
-      className="relative flex scroll-mt-24 flex-col overflow-hidden md:h-[calc(100vh-8rem)] md:max-h-[900px] md:min-h-[600px]"
+      className="relative flex scroll-mt-24 flex-col overflow-hidden md:h-[calc(100vh-8rem)] md:max-h-225 md:min-h-150"
     >
       <div
         aria-hidden
-        className="paper-grid pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
+        className="paper-grid pointer-events-none absolute inset-0 mask-[radial-gradient(ellipse_at_center,black_40%,transparent_85%)]"
       />
       <motion.div
         className="relative z-10 mx-auto grid max-w-5xl flex-1 items-center gap-10 px-4 pb-10 pt-10 md:grid-cols-[3fr_2fr] md:pb-24"

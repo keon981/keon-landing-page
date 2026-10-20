@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react'
 
+import { RiBearSmileFill } from 'react-icons/ri'
 import {
   SiFastapi,
   SiFigma,
@@ -7,6 +8,9 @@ import {
   SiGitlab,
   SiNextdotjs,
   SiReact,
+  SiReactquery,
+  SiRedux,
+  SiShadcnui,
   SiStorybook,
   SiTypescript,
   SiVite,
@@ -22,6 +26,10 @@ export const skills: Skill[] = [
   { name: 'TypeScript', icon: <SiTypescript /> },
   { name: 'Vite', icon: <SiVite /> },
   { name: 'Next.js', icon: <SiNextdotjs /> },
+  { name: 'TanStack Query', icon: <SiReactquery /> },
+  { name: 'Zustand', icon: <RiBearSmileFill /> },
+  { name: 'Redux', icon: <SiRedux /> },
+  { name: 'shadcn/ui', icon: <SiShadcnui /> },
   { name: 'Figma', icon: <SiFigma /> },
   { name: 'Storybook', icon: <SiStorybook /> },
   { name: 'Vitest', icon: <SiVitest /> },

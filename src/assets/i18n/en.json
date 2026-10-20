@@ -14,7 +14,7 @@
       "Front-End Engineer",
       "React Developer"
     ],
-    "intro": "Front-end developer with 3 years of experience owning projects from planning to launch. I build fast, maintainable admin systems with React, Vite, TypeScript and Next.js, bridge product and engineering with Figma, work fluently with RESTful APIs, and use AI tools like Claude Code and GitHub Copilot in my daily workflow.",
+    "intro": "Front-end developer with about 3 years of experience owning projects end to end, from requirements planning to launch. Proficient in React, Next.js and TypeScript, I focus on admin systems with an emphasis on maintainability and load performance, and have hands-on experience building component libraries and modular architectures with Storybook. I work with Figma and design systems to refine interactions and bridge product needs with engineering, handle RESTful API integration and complex async data flows, and use AI coding tools like Claude Code to speed up development, improve code quality, and support code reviews and documentation.",
     "badgeRole": "Frontend Dev",
     "badgeYears": "3+ yrs ✦",
     "cta": "Get in Touch!"
@@ -29,12 +29,11 @@
       "role": "Front-End Engineer",
       "company": "Ever Fortune.AI Co., Ltd.",
       "bullets": [
-        "Independently lead front-end development and maintenance — framework selection and modular architecture — building and refactoring systems from 0 to 1",
-        "Collaborate with UI/UX, AI teams and medical professionals to iterate on multiple medical software product interfaces",
-        "Maintain and evolve a DICOM medical imaging system: display, processing, storage and transfer, with filtering, manipulation and measurement tools",
-        "Work with back-end engineers on API integration and documentation",
-        "Write and maintain software design documents and participate in technical feasibility reviews",
-        "Build and continuously refine a shared front-end architecture and component system reused across products"
+        "Project Ownership & 0-to-1 Delivery: Independently led front-end architecture planning, framework selection and modular design; implemented core interfaces, complex interaction logic and API integrations, driving multiple products from prototype validation and MVP development to production launch.",
+        "DICOM Medical Imaging System: Developed and maintained a DICOM medical imaging system, implementing DICOM-compliant image display, storage and transfer, along with highly interactive features such as image filtering, digital manipulation and precise measurement, significantly improving the smoothness of clinical image reading.",
+        "Design System & Component Library: Built and maintained a shared UI component library, design system and front-end development guidelines across product lines, unifying visual and code quality across products, reducing duplicated effort and accelerating team delivery.",
+        "Cross-Functional Collaboration & UX Optimization: Worked closely with UI/UX designers, AI algorithm teams and clinical professionals to turn complex medical workflows and AI model outputs into intuitive front-end visualizations, continuously iterating on medical software products to improve diagnostic efficiency and user experience.",
+        "System Design & API Specification: Took part in early-stage technical requirement analysis and feasibility assessments, co-defined system architecture and API specifications with back-end engineers, and wrote structured technical documentation to ensure efficient front-end/back-end collaboration and long-term maintainability."
       ]
     }
   },
@@ -48,12 +47,12 @@
         "desc": "EFAI Projects"
       },
       "p2": {
-        "title": "Project Two",
-        "desc": "Coming soon — stay tuned."
+        "title": "Kreads Social",
+        "desc": "A Threads-style multi-user social platform that stores content in GitHub Issues — posts, replies and likes map to Issues, Comments and Reactions, with invite-only sign-up and Markdown posting."
       },
       "p3": {
-        "title": "Project Three",
-        "desc": "Coming soon — stay tuned."
+        "title": "Kreads Dashboard",
+        "desc": "Admin dashboard for Kreads with stats and trend charts for users, invites and sign-ins, plus user and invite code management with role-based data access."
       }
     }
   },
